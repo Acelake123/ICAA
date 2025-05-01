@@ -10,9 +10,9 @@ const router:Router = express.Router();
 
 const saltRounds = 10;
 
-// -------------------- SIGNUP --------------------
 router.post("/signup", async (req: Request, res: Response):Promise<any> => {
   try {
+    console.log("I am here")
     const { email, password } = req.body;
 
     // Validate with Zod

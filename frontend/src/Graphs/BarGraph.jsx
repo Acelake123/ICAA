@@ -16,7 +16,8 @@ const BarGraph = () => {
         }
         acc[date].totalEth += item.eth; // Sum the eth values
         return acc;
-      }, {});const exchangeAddress =[
+      }, {});
+      const exchangeAddress =[
         // Binance
         '0x742d35Cc6634C0532925a3b844Bc454e4438f44e', 
         '0x77134cbC06cB00b66F4c7e623D5fdBF6777635EC',

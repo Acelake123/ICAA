@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import HubIcon from "@mui/icons-material/Hub";
 import {
   Dashboard as DashboardIcon,
@@ -9,11 +9,22 @@ import {
   TrendingUp,
   Notifications,
 } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { authAction } from "../store/auth";
 
 function Aside() {
   const baseStyles =
     "flex items-center gap-4 text-blue-600 hover:text-white justify-start px-4 py-2";
   const activeStyles = "bg-blue-700 text-white font-bold rounded-md";
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(authAction.setSignup(false));
+    dispatch(authAction.setLogin(false));
+    navigate("/");
+  };
 
   const navLinks = [
     { to: "/dashboard/overview", icon: <DashboardIcon />, label: "Overview" },
@@ -27,12 +38,10 @@ function Aside() {
   return (
     <aside className="bg-gray-900 w-48 flex flex-col justify-between relative">
       <div>
-        {/* Logo and Dashboard Name */}
         <div className="p-6 text-start ">
           <div className="text-2xl font-bold">GOV</div>
         </div>
 
-        {/* Navigation */}
         <nav>
           <ul className="flex flex-col gap-2">
             {navLinks.map(({ to, icon, label }) => (
@@ -53,7 +62,6 @@ function Aside() {
         </nav>
       </div>
 
-      {/* Settings and Logout */}
       <div className="flex flex-col gap-4 p-6">
         <ul className="flex flex-col gap-2">
           <li>
@@ -68,15 +76,13 @@ function Aside() {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `${baseStyles} ${isActive ? activeStyles : ""}`.trim()
-              }
+            <button
+              onClick={handleLogout}
+              className={`${baseStyles} hover:bg-blue-800 rounded-md`}
             >
               <Logout />
               <span>Logout</span>
-            </NavLink>
+            </button>
           </li>
         </ul>
       </div>
