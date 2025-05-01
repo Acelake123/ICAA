@@ -1,3 +1,4 @@
+
 import express from "express";
 import cookieParser from 'cookie-parser';
 import cors from "cors";
@@ -31,3 +32,4 @@ app.use('/api/v1/user', userRouter);
 app.listen(port,()=>{
     console.log(`the server is listenin on the port http://localhost:${port}`);
 })
+
