@@ -1,1 +1,168 @@
-@import "tailwindcss";
+/* index.css or global.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+  padding: 0;
+  margin: o;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  /* background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);  */
+  background-image: url('/Image.jpg');
+  background-size: cover;
+  color: white; /* Adjust text color for contrast */
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+.modal {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Gradient */
+  border-radius: 6px;
+  color: wheat;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  width: 80%;
+  max-width: 30rem;
+  animation: fade-slide-up 0.3s ease-out forwards;
+}
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+header div h1{
+  float: right;
+  font-size: 24px;
+  margin-left: 10px;
+}
+header div img{
+  float: left;
+}
+
+header nav ul{
+  display: flex;
+}
+header nav ul li{
+  list-style: none;
+  margin: 10px;
+}
+header nav ul li button{
+  font-size: 20px;
+  border: none;
+  padding: 5px;
+  font-weight: 800;
+}
+header nav ul li button:hover{
+  border-radius: 5px;
+}
+
+@media(max-width: 600px){
+#hidden{
+  display: none;
+}
+#logo-section h1{
+  display: none;
+}
+}
+
+
+
+
+/* Sidebar open state */
+.sidebar.open {
+  right: 0; /* Show the sidebar */
+}
+
+/* Sidebar close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Sidebar list items */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: #575757;
+}
+
+/* Overlay background when the sidebar is open */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 0; /* Under the sidebar */
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+  .hamburger-button {
+    display: block; /* Show hamburger button */
+  }
+}
+
+.button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #ffc404;
+  border: 1px solid #ffc404;
+  color: #1f1a09;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.button:hover,
+.button:active {
+  background-color: #ffab04;
+  border-color: #ffab04;
+  color: #1f1a09;
+}
+
+.text-button {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+.text-button:hover,
+.text-button:active {
+  color: red;
+}

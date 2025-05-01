@@ -1,18 +1,50 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Signin} from './Signin';
+import Dashboard from "./Pages/Dashboard";
+import Overview from "./Pages/Overviews";
+import HomePage from "./Components/HomePage";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Chain from "./Pages/Chain";
+import AddressInfo from "./cart/AddressInfo";
+import BarGraph from "./Graphs/BarGraph";
+import Profile from "./Pages/Profile";
+
 
 function App() {
-  return (
-   <div>
-     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Signin />}/>
-      </Routes>
+ 
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <HomePage />,
+    },
+    {
+      path: '/dashboard/overview',
+      element: <Dashboard />,
+      children: [
+        {
+          index: true,
+          element: <Overview />,
+        },
+        {
+          path: 'chain',
+          element: <Chain />
+        },
+        {
+          path: 'transactioninfo',
+          element: <AddressInfo />
+        },
+        {
+          path: 'chart',
+          element: <BarGraph />
+        },
+        {
+          path: 'profile',
+          element: <Profile />
+        }
 
-</BrowserRouter>
-   </div>
-  );
+      ],
+    },
+  ]);
+  
+    return <RouterProvider router={router} />;
 }
 
 export default App;
