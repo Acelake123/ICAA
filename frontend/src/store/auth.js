@@ -8,16 +8,24 @@ const initialValue = {
 const authSlice = createSlice({
   name: "Authentication",
   initialState: initialValue,
-reducers : {
+  reducers: {
+    // Toggle actions
     signup(state) {
       state.signup = !state.signup;
     },
-    showLogin(state) {
+    login(state) {
       state.login = !state.login;
+    },
+
+    // Explicit set actions
+    setSignup(state, action) {
+      state.signup = action.payload;
+    },
+    setLogin(state, action) {
+      state.login = action.payload;
     },
   },
 });
 
 export const authAction = authSlice.actions;
-
 export default authSlice.reducer;

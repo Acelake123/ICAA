@@ -15,7 +15,7 @@ export default function Login(){
   const navigate = useNavigate();
 
   function handleCloseLogin(){
-    dispatch(authAction.showLogin());
+    dispatch(authAction.login());
   }
 
   async function handleLogin(event) {
