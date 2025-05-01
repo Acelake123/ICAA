@@ -32,9 +32,9 @@ This app is ideal for research teams, regulatory analysts, or developers explori
 
 - **Frontend:** React, Vite, JSX
 - **Backend:** Node.js, TypeScript
-- **API:** ETHERSCAN API
+- **API:** Etherscan
 - **Database:** MongoDB, Postgres
-- **REAL-TIME COMMUNICATION:** WEBSOCKET
+- **REAL-TIME COMMUNICATION:** Websocket
 - **ORM:** Prisma
 - **Authentication:** JWT, Bcrypt
 - **Styling:** Tailwindcss
