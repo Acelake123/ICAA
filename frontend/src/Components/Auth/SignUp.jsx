@@ -24,13 +24,14 @@ export default function SignUp() {
       body: JSON.stringify(customerData),
     });
     
+    console.log(await res.json())
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(errorData.message || 'Failed to sign up');
     }
 
     // On success: close sign-up and go to dashboard
-    dispatch(authAction.setSignup(false));
+    dispatch(authAction.setSignup(true));
     navigate("/dashboard/overview");
   }
 

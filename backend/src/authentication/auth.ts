@@ -12,17 +12,19 @@ const saltRounds = 10;
 
 router.post("/signup", async (req: Request, res: Response):Promise<any> => {
   try {
-    console.log("I am here")
+
     const { email, password } = req.body;
 
     // Validate with Zod
     const parsedUser = userSchema.parse({ email, password });
 
+    // console.log(parsedUser)
     // Check if user already exists
     const existingUser = await prisma.user.findUnique({
       where: { email: parsedUser.email },
     });
 
+    console.log("existing user",existingUser)
     if (existingUser) {
       return res.status(409).json({ error: "User already exists" });
     }
