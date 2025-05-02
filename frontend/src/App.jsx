@@ -6,6 +6,7 @@ import Chain from "./Pages/Chain";
 import AddressInfo from "./cart/AddressInfo";
 import BarGraph from "./Graphs/BarGraph";
 import Profile from "./Pages/Profile";
+import TransactionFeed from "./Websocket/Socket";
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
         {
           path: 'profile',
           element: <Profile />
+        },
+        {
+          path: 'watchAddres',
+          element:<TransactionFeed />
         }
 
       ],

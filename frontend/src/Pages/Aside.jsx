@@ -33,6 +33,8 @@ function Aside() {
     { to: "transactioninfo", icon: <TrendingUp />, label: "Transactions" },
     { to: "wallet", icon: <Wallet />, label: "Wallet" },
     { to: "news", icon: <Notifications />, label: "News" },
+    { to: "watchAddres", icon: <Notifications />, label: "watchAddress" },
+
   ];
 
   return (
