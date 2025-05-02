@@ -7,7 +7,7 @@ const transaction = useSelector(state => state.data.tnxData);
 console.log(transaction);
 useEffect(() => {
   // Extract all hash values from the transaction array
-  const newHashes = transaction.map((tnx) => tnx.hash);
+  const newHashes = transaction?.map((tnx) => tnx.hash);
 
   setHashArray(newHashes);
 },[transaction]);
