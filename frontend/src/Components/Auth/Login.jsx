@@ -37,6 +37,7 @@ export default function Login(){
       throw new Error(errorData.message || 'Failed to sign up');
     }
     else{
+      dispatch(authAction.setLogin(true));
       navigate("/dashboard/overview")
     }
   }
